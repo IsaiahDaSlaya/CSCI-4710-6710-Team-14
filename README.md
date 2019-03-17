@@ -1,1 +1,1 @@
-"# CSCI-4710-6710-Team-14" 
+Group Repo for future programming assignments. Team Members - Isaiah Binford, Zack Dreitzler, Xinyu Xiong (Online Student), Xinshuang Zhai
