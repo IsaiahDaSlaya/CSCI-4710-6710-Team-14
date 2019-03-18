@@ -12,7 +12,13 @@
   <h2 style="padding-left: 40px"><font color="blue">HYDRO<span style="color:green">QUALITY</span></font></h2>
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  
+
+  <script type="text/javascript">
+  function delete_row() {
+      // delete the second row
+      document.getElementById("resultTable").deleteRow(0);
+  }
+  </script>
 </head>
 
 <body>
@@ -49,8 +55,120 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
+        <br>
+        <h3>Upload data files (20 rows)</h3>
+        <table border="1" style="width:100%">
+            <tr>
+             <th>DataValue</th>
+             <th>LocalDataTime</th>
+             <th>UTCOffset</th>
+             <th>DataTimeUTC</th>
+             <th>SiteCode</th>
+             <th>VariableCode</th>
+             <th>MethodCode</th>
+             <th>SourceCode</th>
+             <th>QualityControlLevelCode</th>
+         </tr>
+         <tr>
+           <td>0</td>
+           <td>07/01/2018</td>
+           <td>Whatever</td>
+           <td>0</td>
+           <td>0</td>
+           <td>0</td>
+           <td>0</td>
+           <td>0</td>
+           <td>-9999</td>
+         </tr>
+         <tr>
+           <td>0</td>
+           <td>07/01/2018</td>
+           <td>Whatever</td>
+           <td>0</td>
+           <td>0</td>
+           <td>0</td>
+           <td>0</td>
+           <td>0</td>
+           <td>-9999</td>
+         </tr>
+         <tr>
+          <td>0</td>
+           <td>07/01/2018</td>
+           <td>Whatever</td>
+           <td>0</td>
+           <td>0</td>
+           <td>0</td>
+           <td>0</td>
+           <td>0</td>
+           <td>-9999</td>
+         </tr>
+         <tr>
+           <td>0</td>
+           <td>07/01/2018</td>
+           <td>Whatever</td>
+           <td>0</td>
+           <td>0</td>
+           <td>0</td>
+           <td>0</td>
+           <td>0</td>
+           <td>-9999</td>
+           </tr>
+         </table>
 
-        <h1 class="mt-5">VERIFY</h1>
+         <br>
+
+         <div class="row" align="center">
+          <div class="column" style="background-color:#ddd; width: 320px">
+            <h5>Detected Column Names</h5>
+           <table align="center" border="1" align="center" style="width: 300px">
+              <tr><th>LocalDataTime</th></tr>
+              <tr><th>UTCOffset</th></tr>
+              <tr><th>DataTimeUTC</th></tr>
+              <tr><th>SiteCode</th></tr>
+              <tr><th>VariableCode</th></tr>
+              <tr><th>MethodCode</th></tr>
+              <tr><th>SourceCode</th></tr>
+              <tr><th>QualityControlLevelCode</th></tr>
+           </table>
+         </div>
+         <div class="column" align="center" style="background-color:#ddd; width: 100px">
+           <a type="button" class="btn btn-success btn-lg btn-block" href="VERIFY.html">
+              >
+          </a>
+          <button class="btn btn-success btn-lg btn-block" onclick="delete_row()"> "<"</button>
+         </div>
+         <div class="column" style="background-color:#ddd; width: 320px">
+           <h5>Data Columns</h5>
+           <table id="resultTable" border="1" align="center" style="width: 300px">
+              <tr><th>DataValue</th></tr>
+           </table>
+         </div>
+         <div class="column" style="background-color:#fff; width: 10px">
+
+         </div>
+         <div class="column" style="background-color:#eee; width: 200px">
+            <h5>Detected Column Names</h5>
+           <table id="topping1" border="1" align="center" style="width: 180px">
+              <tr><th>LocalDataTime</th></tr>
+              <tr><th>UTCOffset</th></tr>
+              <tr><th>DataTimeUTC</th></tr>
+              <tr><th>SiteCode</th></tr>
+              <tr><th>VariableCode</th></tr>
+              <tr><th>MethodCode</th></tr>
+              <tr><th>SourceCode</th></tr>
+              <tr><th>QualityControlLevelCode</th></tr>
+           </table>
+         </div>
+       </div>
+
+
+
+     <br>
+
+        <!-- Button trigger modal -->
+        <a type="button" class="btn btn-success btn-lg btn-block" href="CONFIGURE.html">
+          Continue
+        </a>
 
       </div>
     </div>
