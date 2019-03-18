@@ -56,7 +56,61 @@
             random info random info random info random info random info random info random info random info random info random info random info random info random info random info random info random info random info random info random info random info random info random info random info random info random info random info random info 
         </p>
 
-        <table border="1" style="width:100%">
+        
+
+
+       <br>
+       <br>
+
+        <button type="button" class="btn btn-info btn-lg btn-block" data-toggle="modal" data-target="#exampleModalCenter">
+          Drag and drop a .CSV file into this tab
+        </button>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <!-- This means this is a bootstrap modal -->
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Loading...</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <!-- ARIA (Accessible Rich Internet Applications) defines a way to make Web content and Web applications more accessible to people with disabilities. -->
+                  <!-- The aria-hidden property tells screen-readers if they should ignore the element. -->
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>Here is a loading gif</p>
+                <img src="spinner.gif" alt="Loading Gif">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Do Something</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-info btn-lg btn-block" data-toggle="modal" data-target="#exampleModalGrid">
+          Select a .CSV file
+        </button>
+        <!-- Modal -->
+<div class="modal fade" id="exampleModalGrid" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <!-- This means this is a bootstrap modal -->
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Loading...</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <!-- Utilize the Bootstrap grid system within a modal by nesting .container-fluid within the .modal-body. Then, use the normal grid system  -->
+      <div class="container-fluid">
+        <div class="row">
+          <table border="1" style="width:100%">
           <tr>
            <th>File Name</th>
            <th>File Type</th>
@@ -93,17 +147,54 @@
            <td> More</td>
          </tr>
        </table>
-
-
-       <br>
-       <br>
-        <button type="button" class="btn btn-info btn-lg btn-block">Drag and drop a .CSV file into this tab</button>
-<button type="button" class="btn btn-info btn-lg btn-block">Select a .CSV file</button>
-<button type="button" class="btn btn-success btn-lg btn-block">Continue</button>
-
+      </div>
+    </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Do Something</button>
       </div>
     </div>
   </div>
+</div>
+
+      
+      </div>
+    </div>
+  </div>
+<br>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-success btn-lg btn-block" data-toggle="modal" data-target="#exampleModalForm">
+  Continue
+</button>
+<div class="modal fade" id="exampleModalForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Meta Data</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Filename:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Comments:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
