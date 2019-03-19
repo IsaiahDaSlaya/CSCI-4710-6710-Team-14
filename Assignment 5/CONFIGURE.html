@@ -8,54 +8,137 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>HYDROQUALITY</title>
-  <h2 style="padding-left: 40px"><font color="blue">HYDRO<span style="color:green">QUALITY</span></font></h2>
+  <title>HYDRQUALITY</title>
+  <h2><font color="blue">HYDRQUALITY</font></h2>
+  <style>
+		*{
+		  box-sizing: border-box;
+		}
+		.row{ display: flex}
+		.column {
+		 float: left;
+		 
+		 padding: 10px;
+		 background-color: powerblue;
+		}
+
+		/* Clear floats after the columns */
+		.row:after {
+		  content: "";
+		  display: table;	
+		  padding: 30px;
+		  
+		}	
+        
+}		
+	</style>
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-            <a class="nav-link disabled" href="#">UPLOAD ></a>
+  <!-- Navigation -->
+  <nav class="navbar navbar-default navbar-expand-lg navbar-black bg-dark static-top fixed-left">
+    <div class="container" background = "gray">
+      <!--<a class="navbar-brand" href="./index.html">UPLOAD</a>-->
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav fixed-left bg-gray">
+		  <li class="nav-item" style="background-color:powderblue;">
+            <a class="nav-link" href="./index.html"> <font color="black" size = "6"> <b>UPLOAD ></b></font> </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#">VERIFY ></a>
+          <li class="nav-item" style="background-color:powderblue;">
+            <a class="nav-link" href="./VERIFY.html"> <font color="black" size = "6"> <b>VERIFY ></b></font> </a>
           </li>
-          <li class="nav-item active">
-            <a class="nav-link disabled" href="#">CONFIGURE ></a>
+          <li class="nav-item" style="background-color:powderblue;">
+            <a class="nav-link" href="./CONFIGURE.html"> <font color="black" size = "6"> <b>CONFIGURE ></b></font> </a>
           </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">RUN TESTS ></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link disabled" href="#">REVIEW</a>
+           <li class="nav-item" style="background-color:powderblue;">
+            <a class="nav-link" href="./RUNTESTS.html"> <font color="black" size = "6"> <b>RUN TESTS ></b></font> </a>
           </li>
-      </ul>
-    </div>
+		   <li class="nav-item" style="background-color:powderblue;">
+            <a class="nav-link" href="./REVIEW.html"> <font color="black" size = "6"> <b>REVIEW ></b></font> </a>
+          </li>
+        </ul>      
+    </div>	
   </nav>
  
 
 
   <!-- Page Content -->
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12 text-center">
-
-        <h1 class="mt-5">CONFIGURE</h1>
-
-      </div>
-    </div>
+  <div class="container bg-info m-5 justify-content-md-center">
+       <div class = "row justify-content-md-center">
+			<div class = "column  m-3 col-md-auto">
+			  <div class = "elements">
+				<h2>Data Fields</h2>
+				<ul class="list-group">
+					<li class="list-group-item">First item</li>
+					<li class="list-group-item">Second item</li>
+					<li class="list-group-item">Third item</li>
+				</ul>
+			  </div>
+			</div>
+			<div class = "column  m-1 col-md-auto" >
+			  <div class = "elements">
+			    <div class = "row">
+				<div class = "column" >
+					<div class = "elements">
+						<h2>Data Fields Information</h2>
+						<ul class="list-group  bg-light">
+							<li class="list-group-item">First item Info1</li>
+							<li class="list-group-item">First item Info2</li>
+							<li class="list-group-item">First item Info3</li>
+						</ul>	
+					</div>					
+				</div>
+				</div>
+				<div class = "row">
+					<div class = "column">
+					    <div class = "elements">
+							<button style="background-color:powderblue;">Modify Information</button>
+						</div>
+					</div>
+				</div>				
+			  </div>
+			</div>
+			
+			<div class = "column m-1 col-md-auto">
+			  <div class = "elements">
+			    <div class = "row">
+					<div class = "column" >
+						<div class = "elements">
+							<h2>QC TEST</h2>
+							<ul class="list-group  bg-light w-100">
+							<li class="list-group-item">First item QC TEST 1</li>
+							<li class="list-group-item">First item QC TEST 2</li>
+							<li class="list-group-item">First item QC TEST 3</li>
+						</ul>
+						</div>
+					</div>
+				</div>
+				<div class = "row">
+					<div class = "column">
+					   <div class = "elements">
+						<button style="background-color:powderblue;">Add Test</button>
+					   </div>
+					</div>
+					<div class = "column">
+					   <div class = "elements">
+						<button style="background-color:powderblue;">Modify Test</button>
+					   </div>
+					</div>
+					<div class = "column">
+					   <div class = "elements">
+						<button style="background-color:powderblue;">Remove Test</button>
+					   </div>
+					</div>
+				</div>
+			  </div>
+			</div>
+		</div>
+	</form>
   </div>
-
+<button style="float:right;  margin-right:150px;">Continue</button>
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
