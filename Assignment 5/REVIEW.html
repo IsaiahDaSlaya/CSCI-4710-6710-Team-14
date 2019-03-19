@@ -3,62 +3,150 @@
 
 <head>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-  <title>HYDROQUALITY</title>
-  <h2 style="padding-left: 40px"><font color="blue">HYDRO<span style="color:green">QUALITY</span></font></h2>
-  <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  
+    <title>HYDROQUALITY</title>
+    <h2 style="padding-left: 40px"><font color="blue">HYDRO<span style="color:green">QUALITY</span></font></h2>
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"></span>
     </button>
-  
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-            <a class="nav-link disabled" href="#">UPLOAD ></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#">VERIFY ></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#">CONFIGURE ></a>
-          </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">RUN TESTS ></a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link disabled" href="#">REVIEW</a>
-          </li>
-      </ul>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">UPLOAD ></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">VERIFY ></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">CONFIGURE ></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">RUN TESTS ></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link disabled" href="#">REVIEW</a>
+            </li>
+        </ul>
     </div>
-  </nav>
- 
+</nav>
 
 
-  <!-- Page Content -->
-  <div class="container">
+
+<!-- Page Content -->
+<div class="container">
     <div class="row">
-      <div class="col-lg-12 text-center">
+        <div class="col-lg-12 text-center">
 
-        <h1 class="mt-5">REVIEW</h1>
+            <h1 class="mt-5">REVIEW</h1>
 
-      </div>
+        </div>
     </div>
-  </div>
+</div>
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="canvasjs.min.js"></script>
+<script>
+    window.onload = function () {
+
+        var chart = new CanvasJS.Chart("chartContainer", {
+            animationEnabled: true,
+            theme: "light2",
+            title:{
+                text: "DataValue1"
+            },
+            axisY:{
+                includeZero: false
+            },
+            data: [{
+                type: "line",
+                dataPoints: [
+                    { y: 450 },
+                    { y: 414},
+                    { y: 520, indexLabel: "highest",markerColor: "red", markerType: "triangle" },
+                    { y: 460 },
+                    { y: 450 },
+                    { y: 500 },
+                    { y: 480 },
+                    { y: 480 },
+                    { y: 410 , indexLabel: "lowest",markerColor: "DarkSlateGrey", markerType: "cross" },
+                    { y: 500 },
+                    { y: 480 },
+                    { y: 510 }
+                ]
+            }]
+        });
+        chart.render();
+
+    }
+</script>
+<div class="container">
+    <table class="table table-bordered" id="data_table" >
+        <caption>Flagged Data</caption>
+        <thead>
+        <tr>
+            <th>DataTime</th>
+            <th>Value</th>
+            <th>QC Flag</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>01:01:00</td>
+            <td>450</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>00:01:00</td>
+            <td>480</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>00:05:20</td>
+            <td>500</td>
+            <td>True</td>
+        </tr>
+        </tbody>
+    </table>
+    <table class="table table-borderless" id="metadata">
+        <thead>
+        <tr>
+            <th>DataTime</th>
+            <th>Measurement</th>
+            <th>Flag Code</th>
+            <th>Flag Meaning</th>
+            <th>Data Flagged</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Random Value</td>
+            <td>Random Value</td>
+            <td>Random Value</td>
+            <td>Random Value</td>
+            <td>Random Value</td>
+        </tr>
+        </tbody>
+    </table>
+    <button class="btn btn-primary">Previous Data Column</button>
+    <button class="btn btn-primary">Next Data Column</button>
+</div>
+<div id="chartContainer">
+</div>
 
 </body>
 
