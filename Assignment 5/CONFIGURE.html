@@ -68,7 +68,7 @@
        <div class = "row justify-content-md-center">
 			<div class = "column  m-3 col-md-auto">
 			  <div class = "elements">
-				<h2>Data Fields</h2>
+				<h5>Data Fields</h5>
 				<ul class="list-group">
 					<li class="list-group-item">First item</li>
 					<li class="list-group-item">Second item</li>
@@ -81,7 +81,7 @@
 			    <div class = "row">
 				<div class = "column" >
 					<div class = "elements">
-						<h2>Data Fields Information</h2>
+						<h5>Data Fields Information</h5>
 						<ul class="list-group  bg-light">
 							<li class="list-group-item">First item Info1</li>
 							<li class="list-group-item">First item Info2</li>
@@ -93,7 +93,7 @@
 				<div class = "row">
 					<div class = "column">
 					    <div class = "elements">
-							<button style="background-color:powderblue;">Modify Information</button>
+							<button style="background-color:powderblue;" data-toggle="modal" data-target="#Modify">Modify Information</button>							
 						</div>
 					</div>
 				</div>				
@@ -104,9 +104,9 @@
 			  <div class = "elements">
 			    <div class = "row">
 					<div class = "column" >
-						<div class = "elements">
-							<h2>QC TEST</h2>
-							<ul class="list-group  bg-light w-100">
+						<div class = "elements" >
+							<h5>QC TEST</h5>
+							<ul class="list-group  bg-light" style="width:550px">
 							<li class="list-group-item">First item QC TEST 1</li>
 							<li class="list-group-item">First item QC TEST 2</li>
 							<li class="list-group-item">First item QC TEST 3</li>
@@ -117,7 +117,7 @@
 				<div class = "row">
 					<div class = "column">
 					   <div class = "elements">
-						<button style="background-color:powderblue;">Add Test</button>
+						<button style="background-color:powderblue;" data-toggle="modal" data-target="#Add">Add Test</button>
 					   </div>
 					</div>
 					<div class = "column">
@@ -136,7 +136,77 @@
 		</div>
 	</form>
   </div>
-<button style="float:right;  margin-right:150px;">Continue</button>
+    <div class="modal fade" id="Modify" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+         <p>
+		 <center>First Item Info1</center>
+		 </p>      
+        </div>
+        <div class="modal-body"> 
+		<center>
+          <p>
+		    <center>Unit</center>
+		  </p>	
+		 <p> <input type="text" name="fname" value = "Farenheit">	</p>	  
+		  <button style="background-color:green;">Cancel</button>
+		  <button style="background-color:green;">Save Changes</button>
+        </div>
+        
+		<center>
+		<div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+      <div class="modal fade" id="Add" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+         <p>
+		 <center>New TEST</center>
+		 </p>      
+        </div>
+        <div class="modal-body">
+		<div class = "row">
+			<div class = "column">
+			  <div class = "elements">		
+		<div style="width:200px;height:100px;border:1px solid #000;">This will be a plot!</div>
+		</div>
+		</div>
+		<div class = "column">
+			  <div class = "elements">
+		<div class="form-group">
+              <select class="form-control" id="mySelect" name="example">
+                <option value='teamMember.html'>Test 1</option>
+                <option value='threshold.html'>Test 2</option>
+              </select id="mySelect">            
+          </div>
+		  </div>
+		  </div>
+		  </div>
+	<center>           
+		  <button style="background-color:green;">Add additional data</button>
+		  <button style="background-color:green;">Cancel</button>
+		  <button style="background-color:green;">Save Changes</button>
+        </div>
+        
+		<center>
+		<div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+<a type="button"  class="btn btn-success btn-lg" style="float:right;  margin-right:150px;" href="RUNTESTS.html">Continue ></a>
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
