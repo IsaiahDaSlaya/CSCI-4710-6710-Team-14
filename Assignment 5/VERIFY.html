@@ -1,27 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-
-  <meta charset="utf-8">
+<html>
+    <head>
+        <meta charset="windows-1252">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-
   <title>HYDROQUALITY</title>
   <h2 style="padding-left: 40px"><font color="blue">HYDRO<span style="color:green">QUALITY</span></font></h2>
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <script type="text/javascript">
-  function delete_row() {
-      // delete the second row
-      document.getElementById("resultTable").deleteRow(0);
-  }
-  </script>
-</head>
-
-<body>
+        
+        <style>
+            
+            .container{overflow: hidden}
+            .tab{float: left}
+            .tab-btn{margin: 10px;}
+            button{display:block;margin-bottom: 20px;}
+            tr{transition:all .25s ease-in-out}
+            tr:hover{background-color: #ddd;}
+            
+        </style>    
+    </head>
+    <body>
+        <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,14 +53,9 @@
       </ul>
     </div>
   </nav>
- 
-
-
-  <!-- Page Content -->
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12 text-center">
-        <br>
+        
+        <div class="container">
+            <br>
         <h3>Upload data files (20 rows)</h3>
         <table border="1" style="width:100%">
             <tr>
@@ -116,68 +116,154 @@
          </table>
 
          <br>
+         <div class="row" align="center" style="background-color:#ddd">
+            <div class="column" style="width: 320px">
+                <table id="table1" border="1" >
+                    <tr>
+                        <th>Detected Column Names</th>
+                        <th>Select</th>
+                    </tr>
+                    <tr>
+                        <td>DataValue</td>
+                        <td><input type="checkbox" name="check-tab1"></td>
+                    </tr>
+                     <tr>
+                        <td>LocalDataTime</td>
+                        <td><input type="checkbox" name="check-tab1"></td>
+                    </tr>
+                    <tr>
+                        <td>UTCOffset</td>
+                        <td><input type="checkbox" name="check-tab1"></td>
+                    </tr>
+                     <tr>
+                        <td>DataTimeUTC</td>
+                        <td><input type="checkbox" name="check-tab1"></td>
+                    </tr>
+                     <tr>
+                        <td>SiteCode</td>
+                        <td><input type="checkbox" name="check-tab1"></td>
+                    </tr>
+                     <tr>
+                        <td>VariableCode</td>
+                        <td><input type="checkbox" name="check-tab1"></td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="column" align="center" style="width: 100px">
+                <button onclick="tab1_To_tab2();">>>>>></button>
+                <button onclick="tab2_To_tab1();"><<<<<</button>
+            </div>
+            
+            <div class="column" style="width: 320px">
+                <table id="table2" border="1">
+                    <tr>
+                        <th>Data Columns</th>
+                        <th>Select</th>
+                    </tr>
+                </table>   
+            </div>
 
-         <div class="row" align="center">
-          <div class="column" style="background-color:#ddd; width: 320px">
-            <h5>Detected Column Names</h5>
-           <table align="center" border="1" align="center" style="width: 300px">
-              <tr><th>LocalDataTime</th></tr>
-              <tr><th>UTCOffset</th></tr>
-              <tr><th>DataTimeUTC</th></tr>
-              <tr><th>SiteCode</th></tr>
-              <tr><th>VariableCode</th></tr>
-              <tr><th>MethodCode</th></tr>
-              <tr><th>SourceCode</th></tr>
-              <tr><th>QualityControlLevelCode</th></tr>
-           </table>
-         </div>
-         <div class="column" align="center" style="background-color:#ddd; width: 100px">
-           <a type="button" class="btn btn-success btn-lg btn-block" href="VERIFY.html">
-              >
-          </a>
-          <button class="btn btn-success btn-lg btn-block" onclick="delete_row()"> "<"</button>
-         </div>
-         <div class="column" style="background-color:#ddd; width: 320px">
-           <h5>Data Columns</h5>
-           <table id="resultTable" border="1" align="center" style="width: 300px">
-              <tr><th>DataValue</th></tr>
-           </table>
-         </div>
-         <div class="column" style="background-color:#fff; width: 10px">
-
-         </div>
-         <div class="column" style="background-color:#eee; width: 200px">
-            <h5>Detected Column Names</h5>
-           <table id="topping1" border="1" align="center" style="width: 180px">
-              <tr><th>LocalDataTime</th></tr>
-              <tr><th>UTCOffset</th></tr>
-              <tr><th>DataTimeUTC</th></tr>
-              <tr><th>SiteCode</th></tr>
-              <tr><th>VariableCode</th></tr>
-              <tr><th>MethodCode</th></tr>
-              <tr><th>SourceCode</th></tr>
-              <tr><th>QualityControlLevelCode</th></tr>
-           </table>
-         </div>
-       </div>
-
-
-
-     <br>
-
+            <div class="column" style="width: 200px">
+                <table id="table1" border="1">
+                    <tr>
+                        <th>Selec DateTime Column</th>
+                        <th>Select</th>
+                    </tr>
+                    <tr>
+                        <td>DataValue</td>
+                        <td><input type="checkbox" name="check-tab1"></td>
+                    </tr>
+                     <tr>
+                        <td>LocalDataTime</td>
+                        <td><input type="checkbox" name="check-tab1"></td>
+                    </tr>
+                    <tr>
+                        <td>UTCOffset</td>
+                        <td><input type="checkbox" name="check-tab1"></td>
+                    </tr>
+                     <tr>
+                        <td>DataTimeUTC</td>
+                        <td><input type="checkbox" name="check-tab1"></td>
+                    </tr>
+                     <tr>
+                        <td>SiteCode</td>
+                        <td><input type="checkbox" name="check-tab1"></td>
+                    </tr>
+                     <tr>
+                        <td>VariableCode</td>
+                        <td><input type="checkbox" name="check-tab1"></td>
+                    </tr>
+                </table>   
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="container">
         <!-- Button trigger modal -->
         <a type="button" class="btn btn-success btn-lg btn-block" href="CONFIGURE.html">
           Continue
         </a>
-
-      </div>
     </div>
-  </div>
-
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-</body>
-
+        
+        <script>
+            
+            function tab1_To_tab2()
+            {
+                var table1 = document.getElementById("table1"),
+                    table2 = document.getElementById("table2"),
+                    checkboxes = document.getElementsByName("check-tab1");
+            console.log("Val1 = " + checkboxes.length);
+                 for(var i = 0; i < checkboxes.length; i++)
+                     if(checkboxes[i].checked)
+                        {
+                            // create new row and cells
+                            var newRow = table2.insertRow(table2.length),
+                                cell1 = newRow.insertCell(0),
+                                cell2 = newRow.insertCell(1);
+                            // add values to the cells
+                            cell1.innerHTML = table1.rows[i+1].cells[0].innerHTML;
+                            cell2.innerHTML = "<input type='checkbox' name='check-tab2'>";
+                           
+                            // remove the transfered rows from the first table [table1]
+                            var index = table1.rows[i+1].rowIndex;
+                            table1.deleteRow(index);
+                            // we have deleted some rows so the checkboxes.length have changed
+                            // so we have to decrement the value of i
+                            i--;
+                           console.log(checkboxes.length);
+                        }
+            }
+            
+            
+            function tab2_To_tab1()
+            {
+                var table1 = document.getElementById("table1"),
+                    table2 = document.getElementById("table2"),
+                    checkboxes = document.getElementsByName("check-tab2");
+            console.log("Val1 = " + checkboxes.length);
+                 for(var i = 0; i < checkboxes.length; i++)
+                     if(checkboxes[i].checked)
+                        {
+                            // create new row and cells
+                            var newRow = table1.insertRow(table1.length),
+                                cell1 = newRow.insertCell(0),
+                                cell2 = newRow.insertCell(1);
+                            // add values to the cells
+                            cell1.innerHTML = table2.rows[i+1].cells[0].innerHTML;
+                            cell2.innerHTML = "<input type='checkbox' name='check-tab1'>";
+                           
+                            // remove the transfered rows from the second table [table2]
+                            var index = table2.rows[i+1].rowIndex;
+                            table2.deleteRow(index);
+                            // we have deleted some rows so the checkboxes.length have changed
+                            // so we have to decrement the value of i
+                            i--;
+                           console.log(checkboxes.length);
+                        }
+            }
+            
+        </script>    
+        
+    </body>
 </html>
