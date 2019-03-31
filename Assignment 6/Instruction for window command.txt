@@ -1,0 +1,10 @@
+pre-requirement: install python 3
+1)Set Virtual environment
+>py -3 -m venv pyvenv
+>pyvenv\Scripts\activate
+2)Install flask
+>pip install Flask
+3)run app
+>set FLASK_APP=main.py
+>flask run
+4) in command window, you will find a url like http://127.0.0.1:5000/, using this address to open website.
