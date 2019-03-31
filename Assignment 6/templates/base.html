@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+  <head>
+    {% block head %}
+    <title>HYDROQUALITY</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+   <style>
+  *{
+		  box-sizing: border-box;
+		}
+		.row{ display: flex}
+		.column {
+		 float: left;
+		 
+		 padding: 10px;
+		 background-color: powerblue;
+		}
+
+		/* Clear floats after the columns */
+		.row:after {
+		  content: "";
+		  display: table;	
+		  padding: 30px;
+		  
+		}	
+	</style>
+    {% block extrajs %}{% endblock%}
+    <title>{% block title %}{% endblock %} - HYDROQUALITY</title>
+	<h2 style="padding-left: 40px"><font color="blue">HYDRO<span style="color:green">QUALITY</span></font></h2>
+    {% endblock %}
+  </head>
+  <body>
+    <!-- We have done a similar example: Example 13 -->
+    <nav class="navbar navbar-default">
+      <!-- .container-fluid class provides a full width container, spanning the entire width of the viewport -->
+      <div class="container-fluid">
+      <!-- .container class provides a responsive fixed width container -->
+      <!-- <div class="container"> -->
+        <!--<div class="navbar-header">
+          <a class="navbar-brand" href="#">My Personal Website</a>
+        </div>-->
+        <!-- Used on a <ul> container that contains the list items with links inside a navigation bar -->
+        <ul class="nav navbar-nav">
+          <li {% block nav_index %}{% endblock %}><a href="/">UPLOAD ></a></li>
+		  <li {% block nav_Verify %}{% endblock %}><a href="/verify">VERIFY ></a></li>
+          <li {% block nav_config %}{% endblock %}><a href="/config">CONFIGURE ></a></li>          
+          <li {% block nav_runtests %}{% endblock %}><a href="/runtests">RUN TESTS ></a></li>
+		  <li {% block nav_Review %}{% endblock %}><a href="/review">REVIEW</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div id="content">{% block content %}{% endblock %}</div>
+
+  </body>
+</html>

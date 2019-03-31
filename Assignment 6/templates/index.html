@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% block extrajs %}
+<!-- You should place your js files here -->
+<!-- e.g. <script src="/static/js/index.js"></script> -->
+{% endblock%}
+
+{% block title %}Index{% endblock %}
+
+{% block nav_index %}class="active"{% endblock %}
+
+
+{% block content %}
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+
+        <h1 class="mt-5" style="padding-bottom: 30px">Welcome to the CUAHSI HYDROQUALITY client.</h1>
+
+        <p style="padding-bottom: 30px">random info random info random info random info random info random info
+            random info random info random info random info random info random info
+            random info random info random info random info random info random info 
+            random info random info random info random info random info random info random info random info random info random info random info random info random info random info random info random info random info random info random info random info random info random info random info random info random info random info random info 
+        </p>
+
+        
+
+
+       <br>
+       <br>
+
+        <button type="button" class="btn btn-info btn-lg btn-block" data-toggle="modal" data-target="#exampleModalCenter" style="padding-bottom: 100px;height:400px;">
+          Drag and drop a .CSV file into this tab
+        </button>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <!-- This means this is a bootstrap modal -->
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Loading...</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <!-- ARIA (Accessible Rich Internet Applications) defines a way to make Web content and Web applications more accessible to people with disabilities. -->
+                  <!-- The aria-hidden property tells screen-readers if they should ignore the element. -->
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>Here is a loading gif</p>
+                <img src="spinner.gif" alt="Loading Gif">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Do Something</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-info btn-lg btn-block" data-toggle="modal" data-target="#exampleModalForm">
+          Select a .CSV file
+        </button>
+        <div class="modal fade" id="exampleModalForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Meta Data</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Filename:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Comments:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+        
+<br>
+<!-- Button trigger modal -->
+<a type="button" class="btn btn-success btn-lg btn-block" href="VERIFY.html">
+  Continue
+</a>
+
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  
+{% endblock %}
