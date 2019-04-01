@@ -19,7 +19,7 @@ def config():
 @app.route('/verify')
 def verify():
     # this is your index page
-    return render_template('verify.html')	
+    return render_template('verify.html')   
 
 @app.route('/runtests')
 def runtests():
@@ -37,4 +37,3 @@ if __name__ == '__main__':
     app.debug = True
     ip = '127.0.0.1'
     app.run(host=ip)
-
