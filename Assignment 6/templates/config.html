@@ -42,9 +42,6 @@ var googledata = new google.visualization.DataTable();
 		});		
 	});
 });
-
-
-
 </script>
 <script> 
 function select()
@@ -91,11 +88,13 @@ function select()
 					<div class = "column" >
 						<div class = "elements" >
 							<h5>Data Fields</h5>
-							<ul class="list-group">
-								<li class="list-group-item">First item</li>
-								<li class="list-group-item">Second item</li>
-								<li class="list-group-item">Third item</li>
-							</ul>
+							<select multiple class="form-control" id="df" data-max-options="1" style="width:150px; height:200px;">
+								<option>Data Field1</option>
+								<option>Data Field2</option>
+								<option>Data Field3</option>
+								<option>Data Field4</option>
+								<option>Data Field5</option>
+						    </select>
 						</div>
 					</div>
 			</div>
@@ -107,10 +106,10 @@ function select()
 					<div class = "column" >
 						<div class = "elements">
 							<h5>Data Fields Information</h5>
-							<ul class="list-group  bg-light">
-								<li class="list-group-item">First item Info1</li>
-								<li class="list-group-item">First item Info2</li>
-								<li class="list-group-item">First item Info3</li>
+							<ul class="list-group  bg-light" id='di'>
+								
+								<li class="list-group-item"></li>
+								<li class="list-group-item"></li>
 							</ul>	
 						</div>					
 					</div>
