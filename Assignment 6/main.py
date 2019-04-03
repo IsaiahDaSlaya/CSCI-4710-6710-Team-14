@@ -9,12 +9,16 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 UPLOAD_FOLDER = dir_path + '/data/'
 app.config['DATA_FILE'] = UPLOAD_FOLDER + 'NRDC_data.csv'
 app.config['COL_NAME'] = 'Temperature'
+app.config['json_obj'] = util.read_data(app.config['DATA_FILE'])
 
 @app.route('/')
 def index():
     # this is your index page
     log = 'Index.'
     return render_template('index.html', log_index = log)
+@app.route('/read_data')
+def read_data():
+    return app.config['json_obj']
 
 @app.route('/config')
 def config():
