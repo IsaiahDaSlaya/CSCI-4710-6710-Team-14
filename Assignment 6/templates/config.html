@@ -1,7 +1,80 @@
 {% extends "base.html" %}
 {% block extrajs %}
 <!-- You should place your js files here -->
-<script src="/static/js/config.js"></script>
+<!-- e.g. <script src="/static/js/index.js"></script> -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<!--<script src="/static/js/config.js"></script>-->
+<script type="text/javascript">
+google.charts.load('current', {'packages':['corechart']});
+$(document).ready(function(){
+	$('#check_button_id').click(function(){
+		var get_url = '/api/process_csv/' + $('#lower_id').val().toString() + '/' + $('#upper_id').val().toString();		
+		$.get(get_url, function( data ) {
+		  data_obj = JSON.parse(data);		  
+		  //var googledata = new google.visualization.DataTable(data_obj);
+var googledata = new google.visualization.DataTable();
+  googledata.addColumn('number','Humidity');
+  googledata.addColumn('number','Temperature'); 
+	var count = Object.keys(data_obj.Humidity).length;
+	for (var i = 0; i < count; i++) {
+                hum = data_obj.Humidity[i];
+                tem = data_obj.Temperature[i];
+                googledata.addRow([hum, tem]);
+            }
+		  var options = {
+				 hAxis: {
+          title: 'Humidity'
+        },
+        vAxis: {
+          title: 'Temperature'
+        },
+        backgroundColor: '#f1f8e9',
+				'width': 800,
+			'height': 500
+			};
+
+  // Instantiate and draw our chart, passing in some options.
+  var chart = new google.visualization.LineChart(document.getElementById('my_chart'));
+  chart.draw(googledata, options);
+		});		
+	});
+});
+
+
+
+</script>
+<script> 
+function select()
+{
+  var e = document.getElementById("mySelect");
+  if(e.options[e.selectedIndex].value = "Outlier")
+    document.getElementById("TS").style.visibility = "visible";
+}
+</script>
+   <style>
+  *{
+		  box-sizing: border-box;
+		}
+		.row{ display: flex}
+		.column {
+		 float: left;
+		 
+		 padding: 10px;
+		 background-color: powerblue;
+		}
+
+		/* Clear floats after the columns */
+		.row:after {
+		  content: "";
+		  display: table;	
+		  padding: 30px;
+		  
+		}	
+	</style>
+
 {% endblock%}
 
 {% block title %}CONFIGURE{% endblock %}
@@ -12,29 +85,35 @@
 
   <div class="container bg-info m-5 justify-content-md-center">
        <div class = "row justify-content-md-center">
-			<div class = "column  m-3 col-md-auto">
+			<div class = "column  m-1 col-md-auto">
 			  <div class = "elements">
-				<h5>Data Fields</h5>
-				<ul class="list-group">
-					<li class="list-group-item">First item</li>
-					<li class="list-group-item">Second item</li>
-					<li class="list-group-item">Third item</li>
-				</ul>
-			  </div>
+			  <div class = "row">
+					<div class = "column" >
+						<div class = "elements" >
+							<h5>Data Fields</h5>
+							<ul class="list-group">
+								<li class="list-group-item">First item</li>
+								<li class="list-group-item">Second item</li>
+								<li class="list-group-item">Third item</li>
+							</ul>
+						</div>
+					</div>
+			</div>
+			</div>
 			</div>
 			<div class = "column  m-1 col-md-auto" >
 			  <div class = "elements">
 			    <div class = "row">
-				<div class = "column" >
-					<div class = "elements">
-						<h5>Data Fields Information</h5>
-						<ul class="list-group  bg-light">
-							<li class="list-group-item">First item Info1</li>
-							<li class="list-group-item">First item Info2</li>
-							<li class="list-group-item">First item Info3</li>
-						</ul>	
-					</div>					
-				</div>
+					<div class = "column" >
+						<div class = "elements">
+							<h5>Data Fields Information</h5>
+							<ul class="list-group  bg-light">
+								<li class="list-group-item">First item Info1</li>
+								<li class="list-group-item">First item Info2</li>
+								<li class="list-group-item">First item Info3</li>
+							</ul>	
+						</div>					
+					</div>
 				</div>
 				<div class = "row">
 					<div class = "column">
@@ -110,51 +189,84 @@
       
     </div>
   </div>
-      <div class="modal fade" id="Add" role="dialog">
-    <div class="modal-dialog">
-    
+  <div class="modal fade" id="Add" role="dialog" >
+    <div class="modal-dialog" style="width:1250px;">    
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-         <p>
-		 <center>New TEST</center>
+         <p id = 'test'>
+			<center>New TEST{{qualified}}</center>
 		 </p>      
         </div>
         <div class="modal-body">
 		<div class = "row">
 			<div class = "column">
 			  <div class = "elements">		
-		<div style="width:200px;height:100px;border:1px solid #000;">This will be a plot!</div>
+				<div id="my_chart" style="width:800px;height:500px;border:1px solid #000;"></div>				
+				</div>
+			</div>
+			<div class = "column">
+		    <div class = "row">
+				<div class = "column">
+					<div class = "elements">
+						<div class="form-group">
+							<select class="form-control" id="mySelect" name="example" onchange = "select()">
+								<option disabled selected value> -- select an option -- </option>
+								<option value = "Outlier">Outlier Detection</option>
+								<option>Repeat Value</option>
+								<option>Machine Learning</option>
+							</select>            
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class = "row" id = "TS"  style = "visibility: hidden">
+				<div class = "column">
+				<div class = "elements">
+					<form>
+					  <!-- you have learned how to make this part more organized -->
+					  <div class = "row">
+					    <div class = "elements">
+						  Lower threshold:
+						  <input type="number" value=0 step="0.01" id='lower_id'>
+						</div>
+					  </div>
+					  <div class = "row">
+					    <div class = "elements">
+						  Upper threshold:
+						  <input type="number" value=1 step="0.01" id='upper_id'>
+						</div>
+					  </div>
+					  <div class = "row">
+					    <div class = "elements">
+					  <!-- BE CAREFUL!!!! if your type = 'submit', your get request won't work -->
+							<input type='button' value=Check id='check_button_id'>
+						</div>
+					  </div>
+					</form>
+					</div>
+				</div>
+			</div>
 		</div>
 		</div>
-		<div class = "column">
-			  <div class = "elements">
-		<div class="form-group">
-              <select class="form-control" id="mySelect" name="example">
-                <option value='teamMember.html'>Test 1</option>
-                <option value='threshold.html'>Test 2</option>
-              </select id="mySelect">            
-          </div>
-		  </div>
-		  </div>
-		  </div>
-	<center>           
+		</div>
+		<center>           
 		  <button style="background-color:green;">Add additional data</button>
 		  <button style="background-color:green;">Cancel</button>
 		  <button style="background-color:green;">Save Changes</button>
-        </div>
-        
+		</center>
+             
 		<center>
 		<div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
+		</center>
       </div>
       
     </div>
   </div>
 <a type="button"  class="btn btn-success btn-lg" style="float:right;  margin-right:150px;" id = 'continue'>Continue ></a>
   <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  
   
 {% endblock %}
