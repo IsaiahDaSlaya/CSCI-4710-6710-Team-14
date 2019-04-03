@@ -1,6 +1,6 @@
 import pandas as pd
 import json
-def C(filename, col_name, lower_threshold, upper_threshold):
+def threshold_process_method(filename, col_name, lower_threshold, upper_threshold):
 	'''
 	this function will process a csv file and find values that are more than
 	upper threshold or less than lower threshold
