@@ -1,7 +1,15 @@
-import random
+import pandas as pd
+import json
+def C(filename, col_name, lower_threshold, upper_threshold):
+	'''
+	this function will process a csv file and find values that are more than
+	upper threshold or less than lower threshold
+	'''
+	df = pd.read_csv(filename)
+	df_upper = df[df[col_name]>=lower_threshold]
+	df_qualified = df_upper[df_upper[col_name]<=upper_threshold]
 
-def random_int():
-	'''
-	this function generates a random number between 1 and 10
-	'''
-	return random.uniform(1, 10)
+	df_outlier1 = df[df[col_name]<lower_threshold]
+	df_outlier2 = df[df[col_name]>upper_threshold]
+	# first is within thresholds, second is outlier df
+	return df_qualified.to_json(), pd.concat([df_outlier1, df_outlier2]).to_json()
