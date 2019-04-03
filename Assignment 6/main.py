@@ -1,9 +1,14 @@
-from flask import Flask, render_template, jsonify, json
+import os
+from flask import Flask, request, render_template
+import json
 import util
 
 
 app = Flask(__name__)
-
+dir_path = os.path.dirname(os.path.realpath(__file__))
+UPLOAD_FOLDER = dir_path + '/data/'
+app.config['DATA_FILE'] = UPLOAD_FOLDER + 'NRDC_data.csv'
+app.config['COL_NAME'] = 'Temperature'
 
 @app.route('/')
 def index():
@@ -15,6 +20,11 @@ def index():
 def config():
     # this is your index page
     return render_template('config.html')
+
+@app.route('/api/process_csv/<lower_threshold>/<upper_threshold>')
+def process_csv(lower_threshold= '', upper_threshold= ''):
+	qualified, outlier = util.threshold_process_method(app.config['DATA_FILE'], app.config['COL_NAME'], float(lower_threshold), float(upper_threshold))
+	return qualified
 
 @app.route('/verify')
 def verify():
