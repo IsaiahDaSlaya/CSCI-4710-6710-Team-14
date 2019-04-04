@@ -66,7 +66,7 @@
 
         <div class="column" style="background-color: #b0c3e5; border-style:solid; height: 214px">
             <div class="column" style="width: 240px">
-                <table id="table1" border="1" >
+                <table id="table3" border="1" >
                     <tr>
                         <th>Detected Column Names</th>
                         <th>Select</th>
@@ -102,6 +102,7 @@
             {
                 var table1 = document.getElementById("table1"),
                     table2 = document.getElementById("table2"),
+                    table3 = document.getElementById("table3"),
                     checkboxes = document.getElementsByName("check-tab1");
             console.log("Val1 = " + checkboxes.length);
                  for(var i = 0; i < checkboxes.length; i++)
@@ -118,6 +119,7 @@
                             // remove the transfered rows from the first table [table1]
                             var index = table1.rows[i+1].rowIndex;
                             table1.deleteRow(index);
+                            table3.deleteRow(index);
                             // we have deleted some rows so the checkboxes.length have changed
                             // so we have to decrement the value of i
                             i--;
@@ -130,6 +132,7 @@
             {
                 var table1 = document.getElementById("table1"),
                     table2 = document.getElementById("table2"),
+                    table3 = document.getElementById("table3"),
                     checkboxes = document.getElementsByName("check-tab2");
             console.log("Val1 = " + checkboxes.length);
                  for(var i = 0; i < checkboxes.length; i++)
@@ -139,9 +142,18 @@
                             var newRow = table1.insertRow(table1.length),
                                 cell1 = newRow.insertCell(0),
                                 cell2 = newRow.insertCell(1);
+
+                            // create new row and cells
+                            var newRow2 = table3.insertRow(table3.length),
+                                cell3 = newRow2.insertCell(0),
+                                cell4 = newRow2.insertCell(1);
                             // add values to the cells
                             cell1.innerHTML = table2.rows[i+1].cells[0].innerHTML;
                             cell2.innerHTML = "<input type='checkbox' name='check-tab1'>";
+
+                            // add values to the cells
+                            cell3.innerHTML = table2.rows[i+1].cells[0].innerHTML;
+                            cell4.innerHTML = "<input type='checkbox' name='check-tab1'>";
                            
                             // remove the transfered rows from the second table [table2]
                             var index = table2.rows[i+1].rowIndex;
