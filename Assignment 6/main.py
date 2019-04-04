@@ -17,14 +17,13 @@ UPLOAD_FOLDER = dir_path + '/data/'
 
 # Upload a CSV File
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-
-
 app.config['DATA_FILE'] = UPLOAD_FOLDER + 'NRDC_data.csv'
+app.config['META_FILE'] = UPLOAD_FOLDER + 'meta_data.txt'
 app.config['COL_NAME'] = 'Temperature'
 json_obj = util.read_data(app.config['DATA_FILE'])
-
-
-
+outlier = json_obj
+lowerthreshold= ''
+upperthreshold= ''
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -83,7 +82,28 @@ def read_data():
 
 @app.route('/config')
 def config():
-    return render_template('config.html')
+    # this is your index page
+	
+    return render_template('config.html', json_obj= json_obj)
+	
+@app.route('/read_data')
+def read_data():
+    # this is your index page	
+	#json_obj = util.read_data(app.config['DATA_FILE'])
+	return json_obj
+	
+@app.route('/save_data', methods=['GET','POST'])
+def save_data():
+	data = outlier
+	text_file = open(app.config['META_FILE'], "w")
+	text_file.write(data)
+	text_file.close()
+	return 'Success'
+	
+@app.route('/save_value', methods=['GET','POST'])
+def save_value():
+	json_obj = request.data
+	return 'Success'
 
 @app.route('/api/process_csv/<lower_threshold>/<upper_threshold>')
 def process_csv(lower_threshold= '', upper_threshold= ''):
