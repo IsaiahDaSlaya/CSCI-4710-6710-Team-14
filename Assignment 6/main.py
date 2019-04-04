@@ -17,6 +17,19 @@ app.config['DATA_FILE'] = UPLOAD_FOLDER + 'NRDC_data.csv'
 app.config['COL_NAME'] = 'Temperature'
 app.config['json_obj'] = util.read_data(app.config['DATA_FILE'])
 
+# get current app directory
+dir_path = os.path.dirname(os.path.realpath(__file__))
+UPLOAD_FOLDER = dir_path + '/data/'
+
+app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+@app.route('/')
+def index():
+    # this is your index page
+    log = 'Index.'
+    return render_template('index.html', log_index = log)
+
 @app.route('/', methods=['GET', 'POST'])
 def upload_file():
 	if request.method == 'POST':
@@ -44,7 +57,6 @@ def upload_file():
 		return render_template('index.html')
 
 
-
 @app.route('/read_data')
 def read_data():
     return app.config['json_obj']
@@ -57,16 +69,16 @@ def config():
 @app.route('/api/process_csv/<lower_threshold>/<upper_threshold>')
 def process_csv(lower_threshold= '', upper_threshold= ''):
 	qualified, outlier = util.threshold_process_method(app.config['DATA_FILE'], app.config['COL_NAME'], float(lower_threshold), float(upper_threshold))
-	return qualified
+	return qualified 
 
 @app.route('/verify')
 def verify():
-    # this is your index page
+   
     return render_template('verify.html')   
 
 @app.route('/runtests')
 def runtests():
-    # this is your index page
+    
     log = 'runtests.'
     return render_template('Runtests.html', log_config = log)
 

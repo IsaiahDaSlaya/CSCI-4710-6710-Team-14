@@ -1,23 +1,54 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
+{% block extrajs %}
+<!-- You should place your js files here -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<!-- this css file is from online source, author is Matias Meno -->
+	<link rel="stylesheet" type="text/css" href="/static/css/index.css">
+	<!-- this is the library we used for this example -->
+	<script src="/static/js/dropzone.js"></script>
+<script src="/static/js/index.js"></script>
+{% endblock%}
 
-<html>
+{% block title %}Index{% endblock %}
 
-<head>
-    <title>Upload a CSV File</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <script src="/static/js/index.js"></script>
-</head>
-
-
-<body>
-    <h1>Upload new File</h1>
-    <p>Fail, because {{log}}</p>
+{% block nav_index %}class="active"{% endblock %}
 
 
-</body>
+{% block content %}
 
-</html>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+
+        <h1 class="mt-5" style="padding-bottom: 30px">Welcome to the CUAHSI HYDROQUALITY client.</h1>
+
+        <p style="padding-bottom: 30px">random info random info random info random info random info random info
+            random info random info random info random info random info random info
+            random info random info random info random info random info random info 
+            random info random info random info random info random info random info random info random info random info random info random info random info random info random info random info random info random info random info random info random info random info random info random info random info random info random info random info 
+        </p>
+
+        
+
+
+       <br>
+       <br>
+
+
+
+       <h1>There was an error uploading the .CSV file: {{log}}</h1> 
+<br>
+<div style="padding-top: 100px">
+<!-- Button trigger modal -->
+<a type="button" class="btn btn-success btn-lg btn-block" id = '#'>
+  Go Back
+</a>
+</div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  
+{% endblock %}
