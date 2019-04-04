@@ -10,7 +10,7 @@ pre-requirement: install python 3
 >set FLASK_APP=main.py
 >set FLASK_DEBUG=1
 
-4)install pandas for reading files (if it's not installed)
+4)install pandas and tablib for reading files (if it's not installed)
 >pip install pandas
 >pip install tablib
 
