@@ -29,6 +29,15 @@
        <br>
        <br>
 
+       <!-- enctype defines how your form data will be encoded -->
+      <!-- multipart/form-data means no characters are encoded. -->
+      <!-- This is usually used when you are using forms to upload a file -->
+      <form method="post" enctype=multipart/form-data>
+        <input type=file name=file>
+        <input type=submit value=Upload>
+      </form>
+
+
         <button type="button" class="btn btn-info btn-lg btn-block" data-toggle="modal" data-target="#exampleModalCenter" style="padding-bottom: 100px;height:400px;">
           Drag and drop a .CSV file into this tab
         </button>

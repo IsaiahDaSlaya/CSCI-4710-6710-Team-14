@@ -8,7 +8,7 @@ pre-requirement: install python 3
 
 3)run app
 >set FLASK_APP=main.py
->set FLASK_DEBUG = 1
+>set FLASK_DEBUG=1
 
 4)install pandas for reading files (if it's not installed)
 >pip install pandas
