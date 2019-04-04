@@ -12,8 +12,9 @@
 {% block content %}
         <div class="container">
             <br>
-        <h3>Upload data files (20 rows)</h3>
-        <table border="1" style="width:100%">
+        <div class="box" style="background-color: #b0c3e5; border-style:solid; height: 300px">
+          <h3 style="padding-left:50px;">Upload data files</h3>
+          <table border="1" style="width:90%; text-align: center; margin: auto">
             <tr>
              <th>DataValue</th>
              <th>LocalDataTime</th>
@@ -24,8 +25,8 @@
              <th>MethodCode</th>
              <th>SourceCode</th>
              <th>QualityControlLevelCode</th>
-         </tr>
-         <tr>
+          </tr>
+          <tr>
            <td>0</td>
            <td>07/01/2018</td>
            <td>Whatever</td>
@@ -35,8 +36,8 @@
            <td>0</td>
            <td>0</td>
            <td>-9999</td>
-         </tr>
-         <tr>
+          </tr>
+          <tr>
            <td>0</td>
            <td>07/01/2018</td>
            <td>Whatever</td>
@@ -46,111 +47,74 @@
            <td>0</td>
            <td>0</td>
            <td>-9999</td>
-         </tr>
-         <tr>
-          <td>0</td>
-           <td>07/01/2018</td>
-           <td>Whatever</td>
-           <td>0</td>
-           <td>0</td>
-           <td>0</td>
-           <td>0</td>
-           <td>0</td>
-           <td>-9999</td>
-         </tr>
-         <tr>
-           <td>0</td>
-           <td>07/01/2018</td>
-           <td>Whatever</td>
-           <td>0</td>
-           <td>0</td>
-           <td>0</td>
-           <td>0</td>
-           <td>0</td>
-           <td>-9999</td>
-           </tr>
+          </tr>
          </table>
+        </div>
 
          <br>
-         <div class="row" align="center" style="background-color:#ddd">
-            <div class="column" style="width: 320px">
+          <div class="column" style="background-color: #b0c3e5; border-style:solid; width: 730px; height: 214px">
+            <div class="box" style="text-align: center; align-items: center ">
+              <div class="column" style="width: 250px">
                 <table id="table1" border="1" >
                     <tr>
                         <th>Detected Column Names</th>
                         <th>Select</th>
                     </tr>
                     <tr>
-                        <td>DataValue</td>
+                        <td>Time Stamp</td>
                         <td><input type="checkbox" name="check-tab1"></td>
                     </tr>
                      <tr>
-                        <td>LocalDataTime</td>
+                        <td>Humidity</td>
                         <td><input type="checkbox" name="check-tab1"></td>
                     </tr>
                     <tr>
-                        <td>UTCOffset</td>
-                        <td><input type="checkbox" name="check-tab1"></td>
-                    </tr>
-                     <tr>
-                        <td>DataTimeUTC</td>
-                        <td><input type="checkbox" name="check-tab1"></td>
-                    </tr>
-                     <tr>
-                        <td>SiteCode</td>
-                        <td><input type="checkbox" name="check-tab1"></td>
-                    </tr>
-                     <tr>
-                        <td>VariableCode</td>
+                        <td>Temperature</td>
                         <td><input type="checkbox" name="check-tab1"></td>
                     </tr>
                 </table>
             </div>
             
-            <div class="column" align="center" style="width: 100px">
+            <div class="column" align="center" style="width: 90px">
                 <button onclick="tab1_To_tab2();">>>>>></button>
                 <button onclick="tab2_To_tab1();"><<<<<</button>
             </div>
             
-            <div class="column" style="width: 320px">
+            <div class="column" style="width: 190px">
                 <table id="table2" border="1">
                     <tr>
                         <th>Data Columns</th>
                         <th>Select</th>
                     </tr>
-                </table>   
-            </div>
+                </table>  
+            </div> 
+           </div>
+         </div>
 
-            <div class="column" style="width: 200px">
-                <table id="table1" border="1">
+         <div class="column" style="background-color: #fcfcfc; width: 140px; height: 214px">
+         </div>
+
+        <div class="column" style="background-color: #b0c3e5; border-style:solid; height: 214px">
+            <div class="column" style="width: 240px">
+                <table id="table1" border="1" >
                     <tr>
-                        <th>Selec DateTime Column</th>
+                        <th>Detected Column Names</th>
                         <th>Select</th>
                     </tr>
                     <tr>
-                        <td>DataValue</td>
+                        <td>Time Stamp</td>
                         <td><input type="checkbox" name="check-tab1"></td>
                     </tr>
                      <tr>
-                        <td>LocalDataTime</td>
+                        <td>Humidity</td>
                         <td><input type="checkbox" name="check-tab1"></td>
                     </tr>
                     <tr>
-                        <td>UTCOffset</td>
+                        <td>Temperature</td>
                         <td><input type="checkbox" name="check-tab1"></td>
                     </tr>
-                     <tr>
-                        <td>DataTimeUTC</td>
-                        <td><input type="checkbox" name="check-tab1"></td>
-                    </tr>
-                     <tr>
-                        <td>SiteCode</td>
-                        <td><input type="checkbox" name="check-tab1"></td>
-                    </tr>
-                     <tr>
-                        <td>VariableCode</td>
-                        <td><input type="checkbox" name="check-tab1"></td>
-                    </tr>
-                </table>   
+                </table> 
+              </div>
             </div>
           </div>
         </div>
