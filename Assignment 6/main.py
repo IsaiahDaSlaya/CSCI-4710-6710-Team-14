@@ -3,8 +3,14 @@ from flask import Flask, request, render_template, redirect, url_for
 from werkzeug.utils import secure_filename
 import json
 import util
+import tablib
+import os
 
 app = Flask(__name__)
+
+dataset = tablib.Dataset()
+with open(os.path.join(os.path.dirname(__file__),'NRDC_data.csv')) as f:
+    dataset.csv = f.read()
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 UPLOAD_FOLDER = dir_path + '/data/'
@@ -73,8 +79,9 @@ def process_csv(lower_threshold= '', upper_threshold= ''):
 
 @app.route('/verify')
 def verify():
-   
-    return render_template('verify.html')   
+    # this is your index page
+    data = dataset.html
+    return render_template('verify.html', data=data) 
 
 @app.route('/runtests')
 def runtests():

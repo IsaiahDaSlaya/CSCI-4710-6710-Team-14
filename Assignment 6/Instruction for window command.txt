@@ -12,6 +12,7 @@ pre-requirement: install python 3
 
 4)install pandas for reading files (if it's not installed)
 >pip install pandas
+>pip install tablib
 
 >flask run
 4) in command window, you will find a url like http://127.0.0.1:5000/, using this address to open website.

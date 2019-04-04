@@ -14,41 +14,11 @@
             <br>
         <div class="box" style="background-color: #b0c3e5; border-style:solid; height: 300px">
           <h3 style="padding-left:50px;">Upload data files</h3>
-          <table border="1" style="width:90%; text-align: center; margin: auto">
-            <tr>
-             <th>DataValue</th>
-             <th>LocalDataTime</th>
-             <th>UTCOffset</th>
-             <th>DataTimeUTC</th>
-             <th>SiteCode</th>
-             <th>VariableCode</th>
-             <th>MethodCode</th>
-             <th>SourceCode</th>
-             <th>QualityControlLevelCode</th>
-          </tr>
-          <tr>
-           <td>0</td>
-           <td>07/01/2018</td>
-           <td>Whatever</td>
-           <td>0</td>
-           <td>0</td>
-           <td>0</td>
-           <td>0</td>
-           <td>0</td>
-           <td>-9999</td>
-          </tr>
-          <tr>
-           <td>0</td>
-           <td>07/01/2018</td>
-           <td>Whatever</td>
-           <td>0</td>
-           <td>0</td>
-           <td>0</td>
-           <td>0</td>
-           <td>0</td>
-           <td>-9999</td>
-          </tr>
-         </table>
+          <div class="tableBig" style="overflow-y:scroll; height:200px; display:block; position: absolute; text-align: center; width: 1000px; padding-left:50px; border-style:solid; margin-left:2%; ">
+            {% block body %}
+            {{ data|safe }}
+            {% endblock %}  
+          </div>
         </div>
 
          <br>
