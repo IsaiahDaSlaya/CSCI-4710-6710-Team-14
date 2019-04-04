@@ -21,14 +21,9 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 app.config['DATA_FILE'] = UPLOAD_FOLDER + 'NRDC_data.csv'
 app.config['COL_NAME'] = 'Temperature'
-app.config['json_obj'] = util.read_data(app.config['DATA_FILE'])
+json_obj = util.read_data(app.config['DATA_FILE'])
 
-# get current app directory
-dir_path = os.path.dirname(os.path.realpath(__file__))
-UPLOAD_FOLDER = dir_path + '/data/'
 
-app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
 
@@ -84,7 +79,7 @@ def post_csv():
 		
 @app.route('/read_data')
 def read_data():
-    return app.config['json_obj']
+    return json_obj
 
 @app.route('/config')
 def config():
