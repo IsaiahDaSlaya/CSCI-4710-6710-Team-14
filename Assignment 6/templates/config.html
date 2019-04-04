@@ -42,6 +42,9 @@ var googledata = new google.visualization.DataTable();
 		});		
 	});
 });
+
+
+
 </script>
 <script> 
 function select()
@@ -117,7 +120,7 @@ function select()
 				<div class = "row">
 					<div class = "column">
 					    <div class = "elements">
-							<button style="background-color:powderblue;" data-toggle="modal" data-target="#Modify">Modify Information</button>							
+							<button id = 'modifyButton' style="background-color:powderblue;" data-toggle="modal" data-target="#Modify">Modify Information</button>							
 						</div>
 					</div>
 				</div>				
@@ -160,24 +163,28 @@ function select()
 		</div>
 	</form>
   </div>
-    <div class="modal fade" id="Modify" role="dialog">
-    <div class="modal-dialog">
+    <div class="modal fade" id='Modify' role="dialog">
+    <div class="modal-dialog" id = 'modifyDia'>
     
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
          <p>
-		 <center>First Item Info1</center>
+		 <center id = 'm1'></center>
 		 </p>      
         </div>
         <div class="modal-body"> 
 		<center>
           <p>
-		    <center>Unit</center>
+		    <center>Humidity</center>
 		  </p>	
-		 <p> <input type="text" name="fname" value = "Farenheit">	</p>	  
-		  <button style="background-color:green;">Cancel</button>
-		  <button style="background-color:green;">Save Changes</button>
+		 <p> <input id ='humiditytext' type="text" name="fname"></p>	
+		 <p>
+		    <center>Temperature</center>
+		  </p>	
+		 <p> <input id = 'temperaturetext' type="text" name="fname"></p>		 
+		  <button style="background-color:green;" id = 'modifyCan'>Cancel</button>
+		  <button style="background-color:green;" id = 'modifySave'>Save Changes</button>
         </div>
         
 		<center>
