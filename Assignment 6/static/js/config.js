@@ -1,32 +1,51 @@
-$(document).ready(function () {
+var data_obj = read_data();
+$(document).ready(function(){
 
-	$('#continue').click(function () {
+	$('#continue').click(function(){
 		window.location.href = "/runtests";
+		
 	});
+
 });
 
-$(document).ready(function () {
-	$('#df').change(function () {
+$(document).ready(function(){
+$('#df').change(function(){
+	var index = document.getElementById("df").selectedIndex;   
+	addItem(index, data_obj);
+   });	
+$('#modifyButton').click(function(){
 		var index = document.getElementById("df").selectedIndex;
-
-		var get_url = '/read_data';
-		$.get(get_url, function (data) {
-			data_obj = JSON.parse(data);
-			addItem(index, data_obj);
-		});
-
-	});
+		document.getElementById("humiditytext").value = data_obj.Humidity[index];
+		document.getElementById("temperaturetext").value = data_obj.Temperature[index];
+	});   
+ $('#modifyCan').click(function(){
+	 document.getElementById("modifyDia").close();
+ });
+ $('#modifySave').click(function(){
+	 var index = document.getElementById("df").selectedIndex;
+	 data_obj.Humidity[index] = document.getElementById("humiditytext").value;
+	 data_obj.Temperature[index] = document.getElementById("temperaturetext").value	 
+ });
 });
 
-function addItem(index, data) {
-	var ul = document.getElementById("di");
+
+function addItem(index, data){
+    var ul = document.getElementById("di");
 	$('#di').empty();
-	var li = document.createElement("li");
-	li.className = "list-group-item";
-	li.appendChild(document.createTextNode(data_obj.Humidity[index]));
-	ul.appendChild(li);
+    var li = document.createElement("li");
+    li.className = "list-group-item";
+    li.appendChild(document.createTextNode(data_obj.Humidity[index]));
+    ul.appendChild(li);
 	var li2 = document.createElement("li");
 	li2.className = "list-group-item";
 	li2.appendChild(document.createTextNode(data_obj.Temperature[index]));
-	ul.appendChild(li2);
+    ul.appendChild(li2);
+}
+function read_data()
+{
+	var get_url = '/read_data';		
+		$.get(get_url, function( data ) {
+		data_obj = JSON.parse(data);
+		return data_obj;
+		});
 }
