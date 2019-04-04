@@ -2,12 +2,12 @@
 {% block extrajs %}
 <!-- You should place your js files here -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-	<!-- this css file is from online source, author is Matias Meno -->
-	<link rel="stylesheet" type="text/css" href="/static/css/index.css">
-	<!-- this is the library we used for this example -->
-	<script src="/static/js/dropzone.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<!-- this css file is from online source, author is Matias Meno -->
+<link rel="stylesheet" type="text/css" href="/static/css/index.css">
+<!-- this is the library we used for this example -->
+<script src="/static/js/dropzone.js"></script>
 <script src="/static/js/index.js"></script>
 {% endblock%}
 
@@ -18,37 +18,34 @@
 
 {% block content %}
 
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12 text-center">
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 text-center">
 
-        <h1 class="mt-5" style="padding-bottom: 30px">Welcome to the CUAHSI HYDROQUALITY client.</h1>
+      <h1 class="mt-5" style="padding-bottom: 30px">Welcome to the CUAHSI HYDROQUALITY client.</h1>
 
-        <p style="padding-bottom: 30px">random info random info random info random info random info random info
-            random info random info random info random info random info random info
-            random info random info random info random info random info random info 
-            random info random info random info random info random info random info random info random info random info random info random info random info random info random info random info random info random info random info random info random info random info random info random info random info random info random info random info 
-        </p>
+      <p style="padding-bottom: 30px">random info random info random info random info random info random info
+        random info random info random info random info random info random info
+        random info random info random info random info random info random info
+        random info random info random info random info random info random info random info random info random info
+        random info random info random info random info random info random info random info random info random info
+        random info random info random info random info random info random info random info random info random info
+      </p>
 
-        
+      <br>
+      <br>
 
+      <h1>There was an error uploading the .CSV file: {{log}}</h1>
+      <br>
+      <div style="padding-top: 100px">
+        <!-- Button trigger modal -->
+        <a type="button" class="btn btn-success btn-lg btn-block" href="/">
+          Go Back
+        </a>
+      </div>
 
-       <br>
-       <br>
+      <!-- Bootstrap core JavaScript -->
+      <script src="vendor/jquery/jquery.min.js"></script>
+      <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-
-
-       <h1>There was an error uploading the .CSV file: {{log}}</h1> 
-<br>
-<div style="padding-top: 100px">
-<!-- Button trigger modal -->
-<a type="button" class="btn btn-success btn-lg btn-block" id = '#'>
-  Go Back
-</a>
-</div>
-
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  
-{% endblock %}
+      {% endblock %}

@@ -30,11 +30,7 @@ UPLOAD_FOLDER = dir_path + '/data/'
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-@app.route('/')
-def index():
-    # this is your index page
-    log = 'Index.'
-    return render_template('index.html', log_index = log)
+
 
 @app.route('/', methods=['GET', 'POST'])
 def upload_file():
@@ -92,7 +88,6 @@ def read_data():
 
 @app.route('/config')
 def config():
-    # this is your index page
     return render_template('config.html')
 
 @app.route('/api/process_csv/<lower_threshold>/<upper_threshold>')
@@ -102,7 +97,6 @@ def process_csv(lower_threshold= '', upper_threshold= ''):
 
 @app.route('/verify')
 def verify():
-    # this is your index page
     data = dataset.html
     return render_template('verify.html', data=data) 
 
@@ -114,7 +108,6 @@ def runtests():
 
 @app.route('/review')
 def review():
-    # this is your index page
     log = 'review.'
     return render_template('review.html', log_config = log)
 
