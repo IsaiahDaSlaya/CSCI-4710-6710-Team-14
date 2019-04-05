@@ -25,7 +25,7 @@ $('#modifyButton').click(function(){
 	 var index = document.getElementById("df").selectedIndex;
 	 data_obj.Humidity[index] = document.getElementById("humiditytext").value;
 	 data_obj.Temperature[index] = document.getElementById("temperaturetext").value
-	 save_value();
+	 
  });
  
  $('#testSave').click(function(){
@@ -61,19 +61,5 @@ function save_data()
 	$.get(url, function() {alert()});
    	
 }
-function save_value()
-{
-	$.ajax({        
-    url: '/save_value',
-    data: JSON.stringify(data_obj),
-    type: 'POST',
-	dataType: "json",
-	contentType: "application/json; charset=utf-8",
-	success: function (res) {
-        alert(res);
-    },
-    error: function(e){
-        alert('Error: '+e);
-    } 
-	});		
-}
+
+
