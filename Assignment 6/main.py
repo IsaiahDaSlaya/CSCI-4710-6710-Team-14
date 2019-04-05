@@ -86,12 +86,6 @@ def config():
 	
     return render_template('config.html', json_obj= json_obj)
 	
-@app.route('/read_data')
-def read_data():
-    # this is your index page	
-	#json_obj = util.read_data(app.config['DATA_FILE'])
-	return json_obj
-	
 @app.route('/save_data', methods=['GET','POST'])
 def save_data():
 	data = outlier
