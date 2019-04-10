@@ -1,0 +1,30 @@
+Project Layout
+
+Application Functionalities
+
+1. Home page that displays either a patient account's posts, they can see the list of posts that they have made. And, on the doctor's account (which is a list of the most recent posts), they can comment on patient's posts. 
+
+2. Edit User Account Settings, which involves features such as password changing and delete account
+
+3. Search Bar - Each post will have a list of symptoms, and we're able to search through all the posts currently available using a basic symptom keyword such as "dizzy".
+
+
+Design Implementation
+
+- Material UI With Bootstrap
+
+
+Technologies Used
+
+- Front-End Technologies: React/Redux
+- Database: PostgreSQL with Flask Server
+- Medical API (Subject to Change): API Medic
+
+
+Development Process
+
+- Agile Methodology SCRUM with 1 sprint per week 
+
+Source Management
+
+- Tasks are managed by utilizing issues on the GitHub project board
