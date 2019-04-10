@@ -18,7 +18,7 @@ Technologies Used
 
 - Front-End Technologies: React/Redux
 - Database: PostgreSQL with Flask Server
-- Medical API (Subject to Change): API Medic
+- Medical API (Subject to Change): ApiMedic
 
 
 Development Process
