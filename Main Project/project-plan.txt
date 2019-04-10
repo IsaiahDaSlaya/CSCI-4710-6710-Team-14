@@ -1,8 +1,17 @@
-Project Layout
+Final Project Layout
+
+App Name: Medi-Aid
+
+Application Use: Medi-Aid allows users to use the api ApiMedic to search for potential health problems they may have, and then make a post on the global feed to allow doctors to view and comment. Each post is anonymous to other users if a patient is logged in, but when the application is used with a doctor's account, the doctor can view a post and see the user's name and respond accordingly to a patient's problem. Additionally, users can also modify their user settings such as changing their password, and they can also choose to delete their account if they wish.
+
 
 Application Functionalities
 
-1. Home page that displays either a patient account's posts, they can see the list of posts that they have made. And, on the doctor's account (which is a list of the most recent posts), they can comment on patient's posts. 
+1. Home page that displays either:
+
+A patient account's posts, in which they can see the list of posts that they have made. 
+
+And for the other type of account, a doctor's account (which is a list of the most recent posts), they can comment on patient's posts. 
 
 2. Edit User Account Settings, which involves features such as password changing and delete account
 
@@ -17,14 +26,10 @@ Design Implementation
 Technologies Used
 
 - Front-End Technologies: React/Redux
-- Database: PostgreSQL with Flask Server
+- Back-End Technologies: PostgreSQL Database with a Flask Server
 - Medical API (Subject to Change): ApiMedic
 
 
 Development Process
 
-- Agile Methodology SCRUM with 1 sprint per week 
-
-Source Management
-
-- Tasks are managed by utilizing issues on the GitHub project board
+- Tasks are managed by utilizing issues on the GitHub Repository's project board.
