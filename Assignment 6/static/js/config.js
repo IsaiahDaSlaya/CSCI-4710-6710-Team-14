@@ -24,7 +24,12 @@ $('#modifyButton').click(function(){
  $('#modifySave').click(function(){
 	 var index = document.getElementById("df").selectedIndex;
 	 data_obj.Humidity[index] = document.getElementById("humiditytext").value;
-	 data_obj.Temperature[index] = document.getElementById("temperaturetext").value	 
+	 data_obj.Temperature[index] = document.getElementById("temperaturetext").value
+	 
+ });
+ 
+ $('#testSave').click(function(){
+	  save_data();
  });
 });
 
@@ -49,3 +54,12 @@ function read_data()
 		return data_obj;
 		});
 }
+
+function save_data()
+{	        
+    var url = '/save_data';
+	$.get(url, function() {alert()});
+   	
+}
+
+
