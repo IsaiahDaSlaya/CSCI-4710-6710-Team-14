@@ -66,3 +66,24 @@ def get_melon_by_id(id):
                   row[6], row[7])
     
     return melon
+
+def get_melon_by_name(name):
+    """Query for a specific melon in the database by the primary key"""
+    cursor = connect()
+    query = """SELECT id, melon_type, common_name,
+                      price, imgurl,
+                      flesh_color, rind_color, seedless
+               FROM melons
+               WHERE common_name = ?;"""
+
+    cursor.execute(query, (id,))
+
+    row = cursor.fetchone()
+    
+    if not row:
+        return None
+
+    melon = Melon(row[0], row[1], row[2], row[3], row[4], row[5],
+                  row[6], row[7])
+    
+    return melon
