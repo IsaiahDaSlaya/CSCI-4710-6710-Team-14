@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block body %}
+<a class="btn btn-primary" href="/melons">Back</a>
 <h2>{{ display_melon.common_name }}</h2>
 <img class="product-img" src="{{display_melon.imgurl}}">
 <div class="cart well">
@@ -7,7 +8,7 @@
     <p> {{ display_melon.price_str() }} </p>
     <a class="btn btn-primary" href="/add_to_cart/{{display_melon.id}}">Add to Cart</a>
 </div>
-<div class="melon-details">
+<div >
     <h3>Product details</h3>
     <ul>
         <li>Melon type: {{ display_melon.melon_type }}</li>
