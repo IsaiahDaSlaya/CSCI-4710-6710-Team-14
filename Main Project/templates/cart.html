@@ -8,14 +8,17 @@
         <th>Quantity</th>
         <th>Price</th>
         <th>Total</th>
+        <th>Removal</th>
     </tr>
 
     {% for key, value in display_cart.items() %}
     <tr>
-        <td>{{value["name"]}}</td>
-        <td>{{value["qty"]}}</td>
-        <td>${{ "%.2f" % value["price"]}}</td>
-        <td>${{ "%.2f" % (value["qty"] * value["price"])}}</td>
+        <td id="remove1">{{value["name"]}}</td>
+        <td id="remove2">{{value["qty"]}}</td>
+        <td id="remove3">${{ "%.2f" % value["price"]}}</td>
+        <td id="remove4">${{ "%.2f" % (value["qty"] * value["price"])}}</td>
+        <td id="remove5"><button onclick="removeDummy()">Remove Item</button></td>
+        
     </tr>
     {% endfor %}
 
@@ -24,4 +27,24 @@
 
 <a href="/shipping_address" class="btn btn-large btn-primary">Check Out</a>
 <a class="btn btn-large btn-primary" href="/melons">Continue Shopping</a>
+
+<script>
+    function removeDummy() {
+        var elem1 = document.getElementById('remove1');
+        var elem2 = document.getElementById('remove2');
+        var elem3 = document.getElementById('remove3');
+        var elem4 = document.getElementById('remove4');
+        var elem5 = document.getElementById('remove5');
+
+        elem1.parentNode.removeChild(elem1);
+        elem2.parentNode.removeChild(elem2);
+
+        elem3.parentNode.removeChild(elem3);
+
+        elem4.parentNode.removeChild(elem4);
+        elem5.parentNode.removeChild(elem5);
+
+        return false;
+    }
+</script>
 {% endblock %}
