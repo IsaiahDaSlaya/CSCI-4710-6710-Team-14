@@ -62,6 +62,13 @@ def show_melon(id):
     return render_template("melon_details.html",
                   display_melon = melon)
 
+@app.route("/melonSearch/<name>")
+def melonSearch(name):
+    """This page shows the details of a given melon, as well as giving an
+    option to buy the melon."""
+    melon = model.get_melon_by_name(name)
+    return melon
+
 @app.route("/cart")
 def shopping_cart():
     """TODO: Display the contents of the shopping cart. The shopping cart is a
