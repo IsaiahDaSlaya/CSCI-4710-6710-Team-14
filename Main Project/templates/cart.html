@@ -1,13 +1,21 @@
 {% extends 'base.html' %}
 {% block body %}
+<title>BTS Clothing</title>
+
 <table class="table table-striped">
-    <tr><th>Melon Name</th><th>Quantity</th><th>Price</th><th>Total</th></tr>
+    <tr>
+        <th>Melon Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Total</th>
+    </tr>
 
     {% for key, value in display_cart.items() %}
-    <tr><td>{{value["name"]}}</td>
-    	<td>{{value["qty"]}}</td>
-    	<td>${{ "%.2f" % value["price"]}}</td>
-    	<td>${{ "%.2f" % (value["qty"] * value["price"])}}</td>
+    <tr>
+        <td>{{value["name"]}}</td>
+        <td>{{value["qty"]}}</td>
+        <td>${{ "%.2f" % value["price"]}}</td>
+        <td>${{ "%.2f" % (value["qty"] * value["price"])}}</td>
     </tr>
     {% endfor %}
 
@@ -17,5 +25,3 @@
 <a href="/checkout" class="btn btn-large btn-primary">Check Out</a>
 <a class="btn btn-large btn-primary" href="/melons">Continue Shopping</a>
 {% endblock %}
-
-
