@@ -76,7 +76,7 @@ def get_melon_by_name(name):
                FROM melons
                WHERE common_name = ?;"""
 
-    cursor.execute(query, (id,))
+    cursor.execute(query, (name,))
 
     row = cursor.fetchone()
     

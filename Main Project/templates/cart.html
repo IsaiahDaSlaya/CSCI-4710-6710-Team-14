@@ -17,8 +17,7 @@
         <td id="remove2">{{value["qty"]}}</td>
         <td id="remove3">${{ "%.2f" % value["price"]}}</td>
         <td id="remove4">${{ "%.2f" % (value["qty"] * value["price"])}}</td>
-        <td id="remove5"><button onclick="removeDummy()">Remove Item</button></td>
-        
+        <td id="remove5"><a class="btn btn-primary" href="/remove_cart/{{value["id"]}}">Remove Item</a></td>
     </tr>
     {% endfor %}
 
@@ -38,11 +37,11 @@
 
         elem1.parentNode.removeChild(elem1);
         elem2.parentNode.removeChild(elem2);
-
         elem3.parentNode.removeChild(elem3);
-
         elem4.parentNode.removeChild(elem4);
         elem5.parentNode.removeChild(elem5);
+
+        console.log(elem1,elem2);
 
         return false;
     }

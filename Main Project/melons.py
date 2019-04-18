@@ -42,6 +42,7 @@ class CardForm(FlaskForm):
     submit = SubmitField('Sign In')
 
 
+
 @app.route("/")
 def index():
     """This is the 'cover' page of the ubermelon site"""
@@ -62,12 +63,13 @@ def show_melon(id):
     return render_template("melon_details.html",
                   display_melon = melon)
 
-@app.route("/melonSearch/<name>")
+@app.route("/melon/<int:name>")
 def melonSearch(name):
     """This page shows the details of a given melon, as well as giving an
     option to buy the melon."""
     melon = model.get_melon_by_name(name)
-    return melon
+    return render_template("melon_details.html",
+                  display_melon = melon)
 
 @app.route("/cart")
 def shopping_cart():
@@ -88,19 +90,34 @@ def shopping_cart():
             if melon.id in dict_of_melons:
                 dict_of_melons[melon.id]["qty"] += 1
             else:
-                dict_of_melons[melon.id] = {"qty":1, "name": melon.common_name, "price":melon.price}
+                dict_of_melons[melon.id] = {"qty":1, "name": melon.common_name, "price":melon.price, "id": melon.id}
         
         return render_template("cart.html", display_cart = dict_of_melons, total = total_price)  
-    
+
+
+@app.route("/Dcart")
+def Dshopping_cart():
+    """TODO: Display the contents of the shopping cart. The shopping cart is a
+    list held in the session that contains all the melons to be added. Check
+    accompanying screenshots for details."""
+    if "cart" not in session:
+        flash("There is nothing in your cart.")
+        return render_template("cart.html", display_cart = {}, total = 0)
+    else:
+        items = session["cart"]
+        dict_of_melons = {}
+
+        total_price = 0
+        for item in items:
+            melon = model.get_melon_by_id(item)
+            total_price += melon.price
+            if melon.id in dict_of_melons:
+                dict_of_melons[melon.id]["qty"] -= 1
+            
+        return render_template("cart.html", display_cart = dict_of_melons, total = total_price)  
 
 @app.route("/add_to_cart/<int:id>")
 def add_to_cart(id):
-    """TODO: Finish shopping cart functionality using session variables to hold
-    cart list.
-
-    Intended behavior: when a melon is added to a cart, redirect them to the
-    shopping cart page, while displaying the message
-    "Successfully added to cart" """
 
     if "cart" not in session:
         session["cart"] = []
@@ -111,6 +128,17 @@ def add_to_cart(id):
     return redirect("/cart")
 
 
+@app.route("/remove_cart/<int:id>")
+def remove_cart(id):
+
+    if "cart" not in session:
+        session["cart"] = []
+
+    session["cart"].remove(id)
+
+    flash("Successfully removed from cart!")
+    return redirect("/Dcart")
+
 @app.route("/checkout")
 def checkout():
     flash("Success! An Order Confirmation will be sent to your email shortly.")
@@ -119,10 +147,6 @@ def checkout():
 @app.route('/shipping_address')
 def shipping_address():
     form = ShippingAddressForm()
-    if form.validate_on_submit():
-        flash('Login requested for shipping address {}, remember_address={}'.format(
-            form.username.data, form.remember_me.data))
-        return redirect('/billing_address')
     return render_template('shipping_address.html', title='shipping address', form=form)
 
 @app.route('/billing_address')
