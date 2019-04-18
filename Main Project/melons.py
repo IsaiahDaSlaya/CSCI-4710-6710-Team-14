@@ -2,10 +2,45 @@ from flask import Flask, request, session, render_template, g, redirect, url_for
 import model
 import jinja2
 import os
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField, BooleanField, SubmitField
+from wtforms.validators import DataRequired
 
 app = Flask(__name__)
 app.secret_key = '\xf5!\x07!qj\xa4\x08\xc6\xf8\n\x8a\x95m\xe2\x04g\xbb\x98|U\xa2f\x03'
 app.jinja_env.undefined = jinja2.StrictUndefined
+
+
+class ShippingAddressForm(FlaskForm):
+    firstname = StringField('First Name', validators=[DataRequired()])
+    lastname = StringField('Last Name', validators=[DataRequired()])
+    address = StringField('Shipping Address', validators=[DataRequired()])
+    city = StringField('City', validators=[DataRequired()])
+    state = StringField('State', validators=[DataRequired()])
+    zipcode = StringField('ZipCode', validators=[DataRequired()])
+    remember_address = BooleanField('Remember Address')
+    submit = SubmitField('Sign In')
+
+class BillingAddressForm(FlaskForm):
+    firstname = StringField('First Name', validators=[DataRequired()])
+    lastname = StringField('Last Name', validators=[DataRequired()])
+    address = StringField('Billing Address', validators=[DataRequired()])
+    city = StringField('City', validators=[DataRequired()])
+    state = StringField('State', validators=[DataRequired()])
+    zipcode = StringField('ZipCode', validators=[DataRequired()])
+    remember_address = BooleanField('Remember Address')
+    submit = SubmitField('Sign In')
+
+
+class CardForm(FlaskForm):
+    firstname = StringField('First Name', validators=[DataRequired()])
+    lastname = StringField('Last Name', validators=[DataRequired()])
+    number = StringField('Number', validators=[DataRequired()])
+    exp = StringField('ExpDate', validators=[DataRequired()])
+    sec = StringField('Security Number', validators=[DataRequired()])
+    remember_card = BooleanField('Remember Card')
+    submit = SubmitField('Sign In')
+
 
 @app.route("/")
 def index():
@@ -73,6 +108,21 @@ def add_to_cart(id):
 def checkout():
     flash("Success! An Order Confirmation will be sent to your email shortly.")
     return redirect("/melons")
+
+@app.route('/shipping_address')
+def shipping_address():
+    form = ShippingAddressForm()
+    if form.validate_on_submit():
+        flash('Login requested for shipping address {}, remember_address={}'.format(
+            form.username.data, form.remember_me.data))
+        return redirect('/billing_address')
+    return render_template('shipping_address.html', title='shipping address', form=form)
+
+@app.route('/billing_address')
+def billing_address():
+    form = BillingAddressForm()
+    anotherform = CardForm()
+    return render_template('billing_address.html', title='billing address', form=form, anotherform= anotherform)
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))

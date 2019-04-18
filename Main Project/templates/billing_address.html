@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block body %}
+<title>Team 14</title>
+
+<h2> Please enter your card information</h2>
+
+<form action="" method="post" novalidate>
+        {{ anotherform.hidden_tag() }}
+        <p>
+            {{ anotherform.firstname.label }}<br>
+            {{ anotherform.firstname(size=32) }}
+        </p>
+        <p>
+            {{ anotherform.lastname.label }}<br>
+            {{ anotherform.lastname(size=32) }}
+        </p>
+        <p>
+            {{ anotherform.number.label }}<br>
+            {{ anotherform.number(size=132) }}
+        </p>
+        <p>
+            {{ anotherform.exp.label }}<br>
+            {{ anotherform.exp(size=8) }}
+        </p>
+        <p>
+            {{ anotherform.sec.label }}<br>
+            {{ anotherform.sec(size=3) }}
+        </p>
+        <p>{{ anotherform.remember_card() }} {{ anotherform.remember_card.label }}</p>
+</form>
+
+
+
+<h2> Please enter your billing address</h2>
+
+
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.firstname.label }}<br>
+            {{ form.firstname(size=32) }}
+        </p>
+        <p>
+            {{ form.lastname.label }}<br>
+            {{ form.lastname(size=32) }}
+        </p>
+        <p>
+            {{ form.address.label }}<br>
+            {{ form.address(size=132) }}
+        </p>
+        <p>
+            {{ form.city.label }}<br>
+            {{ form.city(size=32) }}
+        </p>
+        <p>
+            {{ form.state.label }}<br>
+            {{ form.state(size=2) }}
+        </p>
+        <p>
+            {{ form.zipcode.label }}<br>
+            {{ form.zipcode(size=8) }}
+        </p>
+        <p>{{ form.remember_address() }} {{ form.remember_address.label }}</p>
+    </form>
+
+<a href="/checkout" class="btn btn-large btn-primary">Continue</a>
+<a class="btn btn-large btn-primary" href="/shipping_address">Go back</a>
+{% endblock %}

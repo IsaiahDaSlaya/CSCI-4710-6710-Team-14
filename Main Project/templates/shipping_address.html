@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block body %}
+<title>Team 14</title>
+
+<h2> Please enter your shipping address </h2>
+
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.firstname.label }}<br>
+            {{ form.firstname(size=32) }}
+        </p>
+        <p>
+            {{ form.lastname.label }}<br>
+            {{ form.lastname(size=32) }}
+        </p>
+        <p>
+            {{ form.address.label }}<br>
+            {{ form.address(size=132) }}
+        </p>
+        <p>
+            {{ form.city.label }}<br>
+            {{ form.city(size=32) }}
+        </p>
+        <p>
+            {{ form.state.label }}<br>
+            {{ form.state(size=2) }}
+        </p>
+        <p>
+            {{ form.zipcode.label }}<br>
+            {{ form.zipcode(size=8) }}
+        </p>
+        <p>{{ form.remember_address() }} {{ form.remember_address.label }}</p>
+    </form>
+
+<a href="/billing_address" class="btn btn-large btn-primary">Continue</a>
+<a class="btn btn-large btn-primary" href="/cart">Go back</a>
+{% endblock %}
